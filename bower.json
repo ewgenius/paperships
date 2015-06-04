@@ -15,6 +15,7 @@
   "dependencies": {
     "polymer": "~1.0.2",
     "iron-elements": "polymerelements/iron-elements#~1.0.0",
-    "paper-elements": "polymerelements/paper-elements#~1.0.1"
+    "paper-elements": "polymerelements/paper-elements#~1.0.1",
+    "firebase-element": "GoogleWebComponents/firebase-element#~1.0.1"
   }
 }

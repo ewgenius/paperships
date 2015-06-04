@@ -1,0 +1,43 @@
+dom-module#manager-app
+  link(rel="stylesheet", href="./manager-app.css")
+  template
+    paper-drawer-panel.main-panel(force-narrow, disableSwipe)
+      // sidebar
+      paper-header-panel.sidebar(drawer, mode="seamed")
+        paper-menu(attr-for-selected="data-route" selected="{{route}}")
+          paper-item(data-route="map")
+            iron-icon(icon="maps:map")
+            paper-item-body
+              div карта
+          
+          paper-item(data-route="admin")
+            iron-icon(icon="settings")
+            paper-item-body индекс
+            
+          paper-item
+            paper-item-body
+              paper-menu
+                paper-item(data-route="admin")
+                  iron-icon(icon="settings")
+                  paper-item-body индекс
+                paper-item(data-route="admin")
+                  iron-icon(icon="settings")
+                  paper-item-body индекс
+      // main
+      paper-header-panel(main)
+        paper-toolbar
+          paper-icon-button(icon="menu", paper-drawer-toggle)
+          div(title) {{route}}
+          //paper-tabs.bottom.self-end(title)
+            paper-tab 1
+            paper-tab 1
+            paper-tab 1
+            paper-tab 1
+
+        iron-pages(attr-for-selected="data-route", selected="{{route}}")
+          section(data-route="map")
+            page-map
+          
+          section(data-route="admin")
+            paper-material(elevation="1") admin
+  script(src="./manager-app.js")
