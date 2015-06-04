@@ -1,7 +1,15 @@
 Polymer({
   is: 'game-app',
 
+  properties: {
+    route: {
+      type: String,
+      value: 'login',
+      notify: true
+    },
+  },
+
   ready: function() {
-    console.log(this.is);
+    var app = this;
   }
 });

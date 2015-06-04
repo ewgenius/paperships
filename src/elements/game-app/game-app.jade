@@ -1,4 +1,9 @@
 dom-module#game-app
   link(rel="stylesheet", href="./game-app.css")
   template
+    iron-pages.fit(attr-for-selected="data-route", selected="{{route}}")
+      section(data-route="login")
+        screen-login.fit
+      section(data-route="map")
+        | map
   script(src="./game-app.js")
