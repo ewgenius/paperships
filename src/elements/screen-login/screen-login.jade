@@ -3,5 +3,15 @@ dom-module#game-app
   template
     .fit.layout.vertical.center-center
       div
-        google-signin
+        firebase-auth#firebaseLogin(
+          user="{{user}}",
+          status-known="{{statusKnown}}",
+          location="https://paperships.firebaseio.com",
+          provider="google",
+          on-error="errorHandler",
+          on-user-created="userSuccessHandler",
+          on-password-changed="userSuccessHandler",
+          on-password-reset="userSuccessHandler",
+          on-user-removed="userSuccessHandler")
+        paper-button(on-tap="login") login
   script(src="./screen-login.js")
