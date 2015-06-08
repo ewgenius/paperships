@@ -7,9 +7,34 @@ Polymer({
       value: 'login',
       notify: true
     },
+
+    user: {
+      type: Object,
+      value: null,
+      notify: true
+    }
   },
 
   ready: function() {
-    var app = this;
+    this.logged = this.user != null;
+    window.app = this;
+  },
+
+  login: function() {
+    this.$.firebaseLogin.login();
+  },
+
+  logout: function() {
+    this.$.firebaseLogin.logout();
+    this.user = null;
+    this.route = 'login';
+    this.logged = false;
+  },
+
+  loginHandler: function(e) {
+    if (!this.logged) {
+      this.route = 'map';
+      this.logged = true;
+    }
   }
 });

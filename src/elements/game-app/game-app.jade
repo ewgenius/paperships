@@ -1,9 +1,27 @@
 dom-module#game-app
   link(rel="stylesheet", href="./game-app.css")
   template
-    iron-pages.fit(attr-for-selected="data-route", selected="{{route}}")
-      section(data-route="login")
-        screen-login.fit
-      section(data-route="map")
-        | map
+    
+    firebase-auth#firebaseLogin(
+      user="{{user}}",
+      status-known="{{statusKnown}}",
+      location="https://paperships.firebaseio.com",
+      provider="google",
+      on-login="loginHandler")
+    
+    paper-header-panel
+      paper-toolbar
+        span {{logged}}
+        template(is="dom-if", if="{{logged}}")
+          paper-button(on-tap="logout") LOGOUT
+      
+      iron-pages.fit(attr-for-selected="data-route", selected="{{route}}")
+        // login screen
+        section(data-route="login")
+          .fit.layout.vertical.center-center
+            div
+              paper-button(on-tap="login") LOGIN
+        // 
+        section(data-route="map")
+          | map
   script(src="./game-app.js")
