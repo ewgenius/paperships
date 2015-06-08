@@ -21,7 +21,7 @@ dom-module#game-app
           .fit.layout.vertical.center-center
             div
               paper-button(on-tap="login") LOGIN
-        // 
+        // chose room
         section(data-route="map")
-          | map
+          screen-map.fit(user-id="{{user.uid}}")
   script(src="./game-app.js")

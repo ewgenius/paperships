@@ -1,6 +1,11 @@
 Polymer({
   is: 'screen-map',
 
-  ready: function() {
+  properties: {
+    userId: String
+  },
+
+  attached: function() {
+    console.log(this.userId);
   }
 });

@@ -17,6 +17,9 @@ Polymer({
 
   ready: function() {
     this.logged = this.user != null;
+    if(this.logged) {
+      this.route = 'map';
+    }
     window.app = this;
   },
 
